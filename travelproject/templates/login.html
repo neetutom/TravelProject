@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Website</title>
+    <style>
+      .login_page{
+      display: flex;
+      justify-content: top;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #FAFAD2;
+      margin:0;
+      }
+
+      .submit{
+        width: 100%;
+        padding: 8px 0;
+        font-size: 20px;
+        color: rgb(44, 44, 44);
+        background-color: #ffffff;
+        border-radius: 5px;
+        }
+      .login_form{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 600px;
+          color: rgb(255, 255, 255);
+          font-size: 18px;
+          font-family: sans-serif;
+          background-color: #BDB76B;
+          padding: 20px;
+        }
+      .login_form table{
+          border-spacing:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="login_page">
+  <h2>Sign In</h2>
+  <form method="post" class="login_form">
+      {% csrf_token %}
+    <table>
+      <tr>
+        <td><label>Username</label></td>
+        <td><input type="text" name="username" placeholder="Enter your username"></td>
+      </tr>
+      <tr>
+        <td><label>Password</label></td>
+        <td><input type="password" name="password" placeholder="Enter your password"></td>
+      </tr>
+      <tr>
+         <td colspan="2"><input type="submit" class="submit"/></td>
+      </tr>
+    </table>
+  </form>
+  {% for msg in messages %}
+  <p>{{msg}}</p>
+  {%endfor%}
+</div>
+</body>
+</html>

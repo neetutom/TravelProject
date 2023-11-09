@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Website</title>
+    <style>
+      .registration_page{
+        display: flex;
+        justify-content: top;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #	C0C0C0;
+       }
+
+       .registration_form{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 700px;
+          color: rgb(255, 255, 255);
+          font-size: 16px;
+          font-family: sans-serif;
+          background-color:#708090;
+          padding: 20px;
+        }
+        .submit{
+          width: 70%;
+          padding: 8px 0;
+          font-size: 20px;
+          color: rgb(44, 44, 44);
+          background-color: #ffffff;
+          border-radius: 5px;
+        }
+
+      .registration_form h1{
+        text-align:center;
+       }
+
+       .registration_form table{
+        border-spacing:10px;
+       }
+       p{
+        color:red;
+        font-size: 18px;
+       }
+    </style>
+</head>
+<body>
+<div class="registration_page">
+  <h1>Registration Form</h1>
+  <form class="registration_form" method="post" action="register">
+     {% csrf_token %}
+    <table>
+      <tr>
+        <td><label>Username</label></td>
+        <td><input type="text" name="username" placeholder="Enter username"></td>
+      </tr>
+      <tr>
+        <td><label>First Name</label></td>
+        <td><input type="text" name="firstname" placeholder="Enter you Name"></td>
+      </tr>
+      <tr>
+        <td><label>Last Name</label></td>
+        <td><input type="text" name="lastname" placeholder="Enter you Lst Name"></td>
+      </tr>
+      <tr>
+        <td><label>Password</label></td>
+        <td><input type="password" name="password" placeholder="Enter password"></td>
+      </tr>
+      <tr>
+        <td><label>Confirm Password</label></td>
+        <td><input type="password" name="confirm_password" placeholder="Confirm password"></td>
+      </tr>
+      <tr>
+        <td><label>Email</label></td>
+        <td><input type="email" name="email" placeholder="Enter Email"></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="margin:auto; text-align:center;"><input class="submit" type="submit" value="Register"></td>
+      </tr>
+    </table>
+
+  </form>
+  {% for msg in messages %}
+  <p>{{msg}}</p>
+  {%endfor%}
+</div>
+</body>
+</html>
